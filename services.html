@@ -30,6 +30,9 @@
       align-items: center;
       z-index: 50;
       transition: transform 1s ease;
+   #mobile-menu {
+background: black;
+}
     }
     #loader.slide-out {
       transform: translateY(-100%);
@@ -55,6 +58,14 @@
         <li><a href="event.html" class="hover:text-indigo-400 transition">Event</a></li>
         <li><a href="services.html" class="text-indigo-400 ">Services</a></li>
         <li><a href="contact.html" class="hover:text-indigo-400 transition">Contact</a></li>
+
+        <div id="mobile-menu" class="hidden bg-black md:hidden px-6 pb-4">
+<ul class="flex flex-col space-y-4 text-lg font-semibold">
+<li><a href="index.html" class="block hover:text-indigo-400 transition">Home</a></li>
+<li><a href="event.html" class="block hover:text-indigo-400 transition">Event</a></li>
+<li><a href="services.html" class="block hover:text-indigo-400 transition">Services</a></li>
+<li><a href="contact.html" class="block hover:text-indigo-400 transition">Contact</a></li>
+
       </ul>
     </div>
   </nav>
