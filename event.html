@@ -16,18 +16,18 @@
       color: var(--theme-light);
     }
 
-    #loader {
-      position: fixed;
-      top: 20px;
-      left: 0;
-      width: 100%;
-      height: calc(100% - 60px);
-      background: var(--theme-light);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 50;
-      transition: transform 1s ease;
+   #loader {
+  position: fixed;
+  top: 20px; /* or whatever navbar height is */
+  left: 0;
+  width: 100%;
+  height: calc(100% - 60px);
+  background: var(--theme-light);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+  transition: transform 1s ease;
     }
     #loader.slide-out {
       transform: translateY(-100%);
@@ -49,18 +49,19 @@
     }
 
     nav a:hover {
-      color: #6366f1;
+      color: #6366f1; /* indigo-500 */
     }
 
     #mobile-menu {
       background: black;
     }
 
+    /* Sold Out badge style */
     .sold-out-badge {
       position: absolute;
       top: 12px;
       right: 12px;
-      background: #dc2626;
+      background: #dc2626; /* red-600 */
       color: white;
       font-weight: 700;
       padding: 0.25rem 0.5rem;
@@ -73,6 +74,7 @@
       letter-spacing: 0.05em;
     }
 
+    /* Modal styles */
     #event-modal {
       position: fixed;
       top: 0; left: 0;
@@ -121,6 +123,7 @@
       object-fit: cover;
     }
 
+    /* Animation classes */
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
@@ -156,21 +159,27 @@
       <div class="md:hidden">
         <button id="menu-toggle" aria-label="Toggle menu" aria-expanded="false" class="focus:outline-none">
           <svg class="w-8 h-8 text-indigo-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 6h16M4 12h16M4 18h16" />
+            <path id="menu-icon" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
       </div>
+      <ul id="menu" class="hidden md:flex space-x-8 text-lg font-semibold">
+        <li><a href="index.html" class="text-indigo-400">Home</a></li>
+        <li><a href="event.html" class="hover:text-indigo-400 transition ">Events</a></li>
+        <li><a href="services.html" class="hover:text-indigo-400 transition">Services</a></li>
+        <li><a href="contact.html" class="hover:text-indigo-400 transition">Contact</a></li>
+      </ul>
     </div>
-    <!-- ✅ Only one mobile menu -->
-    <div id="mobile-menu" class="hidden bg-black md:hidden px-6 pb-4">
+      <div id="mobile-menu" class="hidden bg-black md:hidden px-6 pb-4">
       <ul class="flex flex-col space-y-4 text-lg font-semibold">
-        <li><a href="index.html" class="block hover:text-indigo-400 transition">Home</a></li>
+        <li><a href="index.html" class="block hover:text-indigo-400 transition ">Home</a></li>
         <li><a href="event.html" class="block hover:text-indigo-400 transition">Event</a></li>
         <li><a href="services.html" class="block hover:text-indigo-400 transition">Services</a></li>
         <li><a href="contact.html" class="block hover:text-indigo-400 transition">Contact</a></li>
       </ul>
     </div>
   </nav>
+
 
   <!-- Page Header -->
   <header class="pt-24 pb-12 text-center max-w-5xl mx-auto px-6 fade-in">
@@ -182,8 +191,85 @@
 
   <!-- Events Grid -->
   <section class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-6 pb-24">
-    <!-- Repeat these event blocks as needed... (you already have them set up correctly) -->
-    <!-- Event items skipped for brevity -->
+    <!-- Each event with fade-in and hover-scale animations -->
+    
+    <!-- Event 1 -->
+    <div class="relative bg-[#111111] rounded-lg overflow-hidden shadow-lg fade-in hover-scale">
+      <img src="1.jpg" alt="Backstage Jazz Night" class="w-full h-48 object-cover" />
+      <div class="sold-out-badge">Sold Out</div>
+      <div class="p-6">
+        <h3 class="text-2xl font-semibold mb-2">Backstage Jazz Night</h3>
+        <p class="text-gray-300 mb-4">
+          Experience the soulful rhythms and intimate vibes backstage with top jazz artists. Enjoy exclusive sessions and meet-and-greets.
+        </p>
+        <button class="event-info-btn bg-indigo-600 hover:bg-indigo-700 px-5 py-2 rounded text-white font-semibold transition" data-event="1">More Info</button>
+      </div>
+    </div>
+
+    <!-- Event 2 -->
+    <div class="relative bg-[#111111] rounded-lg overflow-hidden shadow-lg fade-in hover-scale">
+      <img src="2.jpg" alt="Rock Legends Reunion" class="w-full h-48 object-cover" />
+      <div class="sold-out-badge">Sold Out</div>
+      <div class="p-6">
+        <h3 class="text-2xl font-semibold mb-2">Rock Legends Reunion</h3>
+        <p class="text-gray-300 mb-4">
+          A legendary gathering of rock icons to relive classic anthems and electrify the stage with unforgettable performances.
+        </p>
+        <button class="event-info-btn bg-indigo-600 hover:bg-indigo-700 px-5 py-2 rounded text-white font-semibold transition" data-event="2">More Info</button>
+      </div>
+    </div>
+
+    <!-- Event 3 -->
+    <div class="relative bg-[#111111] rounded-lg overflow-hidden shadow-lg fade-in hover-scale">
+      <img src="3.jpg" alt="Indie Acoustic Sessions" class="w-full h-48 object-cover" />
+      <div class="sold-out-badge">Sold Out</div>
+      <div class="p-6">
+        <h3 class="text-2xl font-semibold mb-2">Indie Acoustic Sessions</h3>
+        <p class="text-gray-300 mb-4">
+          Get up close with indie artists in unplugged acoustic performances. An evening of raw talent and heartfelt music.
+        </p>
+        <button class="event-info-btn bg-indigo-600 hover:bg-indigo-700 px-5 py-2 rounded text-white font-semibold transition" data-event="3">More Info</button>
+      </div>
+    </div>
+
+    <!-- Event 4 -->
+    <div class="relative bg-[#111111] rounded-lg overflow-hidden shadow-lg fade-in hover-scale">
+      <img src="4.jpg" alt="Electronic Nightscape" class="w-full h-48 object-cover" />
+      <div class="sold-out-badge">Sold Out</div>
+      <div class="p-6">
+        <h3 class="text-2xl font-semibold mb-2">Electronic Nightscape</h3>
+        <p class="text-gray-300 mb-4">
+          Dive into an electronic music journey with mesmerizing light shows and deep beats that will captivate your senses.
+        </p>
+        <button class="event-info-btn bg-indigo-600 hover:bg-indigo-700 px-5 py-2 rounded text-white font-semibold transition" data-event="4">More Info</button>
+      </div>
+    </div>
+
+    <!-- Event 5 -->
+    <div class="relative bg-[#111111] rounded-lg overflow-hidden shadow-lg fade-in hover-scale">
+      <img src="5.jpeg" alt="Hip-Hop Cypher" class="w-full h-48 object-cover" />
+      <div class="sold-out-badge">Sold Out</div>
+      <div class="p-6">
+        <h3 class="text-2xl font-semibold mb-2">Hip-Hop Cypher</h3>
+        <p class="text-gray-300 mb-4">
+          Witness freestyle battles and lyrical genius in an electrifying hip-hop cypher. Experience the culture live and raw.
+        </p>
+        <button class="event-info-btn bg-indigo-600 hover:bg-indigo-700 px-5 py-2 rounded text-white font-semibold transition" data-event="5">More Info</button>
+      </div>
+    </div>
+
+    <!-- Event 6 -->
+    <div class="relative bg-[#111111] rounded-lg overflow-hidden shadow-lg fade-in hover-scale">
+      <img src="6.jpg" alt="Classical Evenings" class="w-full h-48 object-cover" />
+      <div class="sold-out-badge">Sold Out</div>
+      <div class="p-6">
+        <h3 class="text-2xl font-semibold mb-2">Classical Evenings</h3>
+        <p class="text-gray-300 mb-4">
+          Enjoy timeless classical music performed by world-renowned orchestras in an elegant, intimate setting.
+        </p>
+        <button class="event-info-btn bg-indigo-600 hover:bg-indigo-700 px-5 py-2 rounded text-white font-semibold transition" data-event="6">More Info</button>
+      </div>
+    </div>
   </section>
 
   <!-- Event Modal -->
@@ -197,9 +283,7 @@
   </div>
 
   <!-- Footer -->
-  <footer class="bg-black text-gray-400 py-8 mt-12 text-center">
-    <p>© 2025 UNPLUGGED. All rights reserved.</p>
-  </footer>
+ 
 
   <script>
     // Loader animation
@@ -213,29 +297,57 @@
 
     // Mobile menu toggle
     const menuToggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("menu");
     const mobileMenu = document.getElementById("mobile-menu");
     menuToggle.addEventListener("click", () => {
       const expanded = menuToggle.getAttribute("aria-expanded") === "true";
       menuToggle.setAttribute("aria-expanded", !expanded);
+      menu.classList.toggle("hidden");
       mobileMenu.classList.toggle("hidden");
     });
 
     // Event modal data
     const eventData = {
-      1: { title: "Backstage Jazz Night", description: "...", image: "1.jpg" },
-      2: { title: "Rock Legends Reunion", description: "...", image: "2.jpg" },
-      3: { title: "Indie Acoustic Sessions", description: "...", image: "3.jpg" },
-      4: { title: "Electronic Nightscape", description: "...", image: "4.jpg" },
-      5: { title: "Hip-Hop Cypher", description: "...", image: "5.jpeg" },
-      6: { title: "Classical Evenings", description: "...", image: "6.jpg" },
+      1: {
+        title: "Backstage Jazz Night",
+        description: "Experience the soulful rhythms and intimate vibes backstage with top jazz artists. Enjoy exclusive sessions and meet-and-greets.",
+        image: "1.jpg",
+      },
+      2: {
+        title: "Rock Legends Reunion",
+        description: "A legendary gathering of rock icons to relive classic anthems and electrify the stage with unforgettable performances.",
+        image: "2.jpg",
+      },
+      3: {
+        title: "Indie Acoustic Sessions",
+        description: "Get up close with indie artists in unplugged acoustic performances. An evening of raw talent and heartfelt music.",
+        image: "3.jpg",
+      },
+      4: {
+        title: "Electronic Nightscape",
+        description: "Dive into an electronic music journey with mesmerizing light shows and deep beats that will captivate your senses.",
+        image: "4.jpg",
+      },
+      5: {
+        title: "Hip-Hop Cypher",
+        description: "Witness freestyle battles and lyrical genius in an electrifying hip-hop cypher. Experience the culture live and raw.",
+        image: "5.jpeg",
+      },
+      6: {
+        title: "Classical Evenings",
+        description: "Enjoy timeless classical music performed by world-renowned orchestras in an elegant, intimate setting.",
+        image: "6.jpg",
+      },
     };
 
+    // Modal elements
     const modal = document.getElementById("event-modal");
     const modalTitle = document.getElementById("modal-title");
     const modalDesc = document.getElementById("modal-desc");
     const modalImage = document.getElementById("modal-image");
     const modalCloseBtn = modal.querySelector(".modal-close");
 
+    // Open modal function
     function openModal(eventId) {
       const event = eventData[eventId];
       modalTitle.textContent = event.title;
@@ -243,34 +355,48 @@
       modalImage.src = event.image;
       modalImage.alt = event.title;
       modal.classList.add("active");
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = "hidden"; // disable scrolling when modal open
     }
 
+    // Close modal function
     function closeModal() {
       modal.classList.remove("active");
       document.body.style.overflow = "";
     }
 
+    // Attach click to buttons
     document.querySelectorAll(".event-info-btn").forEach((btn) => {
       btn.addEventListener("click", () => {
         openModal(btn.getAttribute("data-event"));
       });
     });
 
+    // Close modal on close button
     modalCloseBtn.addEventListener("click", closeModal);
+
+    // Close modal on outside click
     modal.addEventListener("click", (e) => {
-      if (e.target === modal) closeModal();
-    });
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && modal.classList.contains("active")) closeModal();
+      if (e.target === modal) {
+        closeModal();
+      }
     });
 
+    // Close modal on ESC key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal.classList.contains("active")) {
+        closeModal();
+      }
+    });
+
+    // Animate fade-ins on scroll
     function fadeInOnScroll() {
       const fadeEls = document.querySelectorAll('.fade-in');
       const windowBottom = window.innerHeight + window.scrollY;
       fadeEls.forEach(el => {
         const elTop = el.getBoundingClientRect().top + window.scrollY;
-        if (windowBottom > elTop + 50) el.classList.add('visible');
+        if (windowBottom > elTop + 50) {
+          el.classList.add('visible');
+        }
       });
     }
     window.addEventListener('scroll', fadeInOnScroll);
